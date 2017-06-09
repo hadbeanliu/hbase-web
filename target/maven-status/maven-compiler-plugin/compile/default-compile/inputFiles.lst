@@ -1,0 +1,11 @@
+/home/hadoop/workspace2/hbase-web/src/main/java/com/lhb/data/store/Item.java
+/home/hadoop/workspace2/hbase-web/src/main/java/com/lhb/data/meta/Hcolumn.java
+/home/hadoop/workspace2/hbase-web/src/main/java/com/lhb/data/common/HbaseMetaFactory.java
+/home/hadoop/workspace2/hbase-web/src/main/java/com/lhb/data/common/HttpClientResource.java
+/home/hadoop/workspace2/hbase-web/src/main/java/com/lhb/data/common/CellToObject.java
+/home/hadoop/workspace2/hbase-web/src/main/java/com/lhb/data/controller/RecommendController.java
+/home/hadoop/workspace2/hbase-web/src/main/java/com/lhb/data/dao/UserDaoMapper.java
+/home/hadoop/workspace2/hbase-web/src/main/java/com/lhb/data/dao/ItemDaoMapper.java
+/home/hadoop/workspace2/hbase-web/src/main/java/com/lhb/data/store/User.java
+/home/hadoop/workspace2/hbase-web/src/main/java/com/lhb/data/controller/UserController.java
+/home/hadoop/workspace2/hbase-web/src/main/java/com/lhb/data/meta/Filter.java

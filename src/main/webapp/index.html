@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh" class="no-js">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+		<meta name="apple-mobile-web-app-title" content="今日头条">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta content="telephone=no" name="format-detection">
+		<title>今日头条</title>
+		<link rel="stylesheet" type="text/css" href="style/foundation.min.css" />
+		<link rel="stylesheet" type="text/less" href="style/themes.less" />
+		<link rel="stylesheet" type="text/css" href="style/master.css" />
+		<link rel="stylesheet" type="text/css" href="style/jquery.tag-editor.css" />
+		<link rel="stylesheet" type="text/css" href="style/map.css" />
+		<!--字符集-->
+		<link href="style/font-awesome.min.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" type="text/css" href="style/swiper-3.3.1.min.css">
+		<script src="javascript/vendor/jquery.js"></script>
+		<script src="javascript/less-1.7.3.min.js"></script>
+	</head>
+
+	<body>
+		<div id="layout">
+			<div class="wrapper" id="frame_wrapper">
+
+				<div class="header" id="frame_header">
+					<div class="banner" id="frame_header_banner">
+						<div class="row">
+							<div class="large-12 column">
+								<div class="logo float-left">
+									<a href=""></a>
+								</div>
+								<div class="top_tool float-right">
+									<a class="user">
+										<i class="fa fa-user" aria-hidden="true">登录</i>
+									</a>
+									<a class="search">
+										<i class="fa fa-search" aria-hidden="true"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row" id="frame_header_row2">
+						<div class="column large-12 medium-12 small-no-padding">
+							<div class="top-bar top-bar1">
+								<div class="swiper-container" id="topSwiper">
+									<div class="swiper-wrapper">
+										<div class="swiper-slide">
+											<a class="active" href="#">推荐</a>
+											<a href="#">社会</a>
+											<a href="#">体育</a>
+											<a href="#">娱乐</a>
+											<a href="#">游戏</a>
+											<a href="#">美女</a>
+											<a href="#">汽车</a>
+											<a href="#">财经</a>
+											<a href="#">搞笑</a>
+											<a href="#">军事</a>
+											<a href="#">国际</a>
+											<a href="#">时尚</a>
+											<a href="#">旅游</a>
+											<a href="#">探索</a>
+										</div>
+									</div>
+									<div class="swiper-scrollbar"></div>
+								</div>
+								<a class="float-right btn_more" data-toggle="example-dropdown-1"><span class="hide-for-small-only">更 多</span><i class="fa fa-plus show-for-small-only"></i></a>
+							</div>
+							<div class="dropdown-pane bottom" id="example-dropdown-1" data-dropdown data-hover="true" data-hover-pane="true">
+								<div class="row small-up-3 other-nav">
+									<a class="column" href="">育儿</a>
+									<a class="column" href="">养生</a>
+									<a class="column" href="">故事</a>
+									<a class="column" href="">美文</a>
+									<a class="column" href="">历史</a>
+									<a class="column" href="">美食</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="main" role="main" aria-label="主体区块" id="frame_main">
+					<div class="row" id="frame_main_row1">
+						<div class="large-9 medium-12 small-12 column" id="frame_left_list">
+							<div class="transverse">
+								<ul>
+									<li class="clearfix">
+										<div class="img"><img src="images/n1.jpg" alt=""></div>
+										<div class="content">
+											
+											<div class="title">
+												<a href="#">独家｜遗产?神坑?川普和小伙伴如何接盘利维坦美国</a>
+											</div>
+											<div class="rel-info">
+												<div class="new-info"><span class="label">文化</span><span>搜狐</span>·<span>01-14 10:05</span></div>
+												<div class="btn_container">
+													<div class="news-tag">
+														<textarea class="hero-demo"></textarea>
+													</div>
+													<div class="news-controls float-right">
+														<a title="编辑" class="articl_edit" data-toggle="info-set"><i class="fa fa-edit"></i>编辑</a>
+														<span title="阅读">阅读量(273)</span>
+														<span title="浏览">浏览 273</span>
+														<a title="评论"><i class="fa fa-fw fa-comments-o"></i>评论
+															<num class="comment-num">(12)</num>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+									<li class="clearfix">
+										<div class="img"><img src="images/newspic01.jpg" alt=""></div>
+										<div class="content">
+											<div class="title">
+												<a href="#">网曝女子买猫后反悔 把小猫剥皮丢宠物店门口</a>
+											</div>
+											<div class="description">中国常驻联合国副代表吴海涛13日在77国集团主席交接仪式上说，“77国集团和中国”将继续团结协作，促进共同发展，维护共同利益。</div>
+										</div>
+									</li>
+									<li class="clearfix">
+										<div class="img"><img src="images/newspic01.jpg" alt=""></div>
+										<div class="content">
+											<div class="title">
+												<a href="#">外媒：中国干掉了人民币短线投机者 真正的大空头还活着 外媒：中国干掉了人民币短线投机者 真正的大空头还活着</a>
+											</div>
+											<div class="description">中国常驻联合国副代表吴海涛13日在77国集团主席交接仪式上说，“77国集团和中国”将继续团结协作，促进共同发展，维护共同利益。</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="large-3 medium-4 small-12 column" id="frame_right_con">
+
+						</div>
+					</div>
+				</div>
+
+				<div id="frame_modal">
+					<div class="small reveal" id="modify-editor" data-reveal>
+						<div class="reveal-header">
+							<div class="reveal-title">编辑</div>
+						</div>
+						<div class="reveal-modcon edit-set padding-l">
+							<form>
+								
+								<div class="row margin-t">
+									<div class="small-12 large-1 medium-3 column">
+										<label class="middle">标题：</label>
+									</div>
+									<div class="small-12 large-4 medium-9 end columns">
+										<input type="text" placeholder="请输入标题" required="">
+									</div>
+								</div>
+								<div class="row margin-t">
+									<div class="small-12 large-1 medium-3 column">
+										<label class="middle">栏目：</label>
+									</div>
+									<div class="small-12 large-4 medium-9 end columns">
+										<input type="text" placeholder="" required="">
+									</div>
+								</div>
+								<div class="row">
+									<div class="small-12 large-1 medium-3 column">
+										<label class=" middle">标签：</label>
+									</div>
+									<div class="small-12 large-3 medium-9 end columns">
+										<input type="text" placeholder="请输入标签" required="">
+									</div>
+									<div class="small-12 large-3 medium-9 end columns">
+										<input type="text" placeholder="请输入比例" required="">
+									</div>
+									<div class="large-2 column end">
+										<label id="tools">
+				    						<span aria-hidden="true">&plus;</span>
+			    							<span aria-hidden="true">&minus;</span>
+				    					</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="small-12 large-1 medium-3 column">
+										<label class=" middle">推荐：</label>
+									</div>
+									<div class="small-12 large-4 medium-9 end columns">
+										<div id="raty" class="recommended" data-number="5" data-path="images/raty"></div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="small-12 large-1 medium-3 column">
+										<label class=" middle">置顶：</label>
+									</div>
+									<div class="small-12 large-4 medium-9 end columns">
+										<input type="number" placeholder="置顶几天" required="" min="0" value="0">
+									</div>
+									<div class="large-1 column  end">
+										<label class=" middle">（天）</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="small-12 large-1 medium-3 column">
+										<label class=" middle">城市：</label>
+									</div>
+									<div class="large-4 medium-4 small-4 columns">
+										<select class="city-province" name="province"></select>
+									</div>
+									<div class="large-4 medium-4 small-4 columns end">
+										<select class="city-city" name="city"></select>
+									</div>
+								</div>
+								<div class="row">
+									<div class="small-12 large-1 medium-3 column">
+										<label class=" middle">年龄：</label>
+									</div>
+									<div class="large-4 medium-4 small-4 columns input-line">
+										<input type="text" placeholder="请输入起始年龄" required="">
+									</div>
+									<div class="large-4 medium-4 small-4 columns end">
+										<input type="text" placeholder="请输入截止年龄" required="">
+									</div>
+									<div class="large-1 column  end">
+										<label class=" middle">（岁）</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="small-12 large-1 medium-3 column">
+										<label class=" middle">性别：</label>
+									</div>
+									<div class="small-12 large-4 medium-9 end columns">
+										<label class="middle">
+			        						<input type="radio" name="pokemon" value="男" id="man" required="" checked="checked"><label for="man">男</label>
+											<input type="radio" name="pokemon" value="女" id="women"><label for="women">女</label>
+											<input type="radio" name="pokemon" value="不限" id="null"><label for="null">不限</label>
+										</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="small-12 large-1 medium-3 column">
+										<label class=" middle">职业：</label>
+									</div>
+									<div class="small-12 large-4 medium-9 end columns">
+										<input type="text" placeholder="请输入职业" required="">
+									</div>
+								</div>
+								<div class="row">
+									<div class="small-12 large-1 medium-3 column">
+										<label class=" middle">爱好：</label>
+									</div>
+									<div class="small-12 large-4 medium-9 end columns">
+										<input type="text" placeholder="请输入爱好" required="">
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="reveal-footer">
+							<div class="row">
+								<div class="small-12 columns">
+									<a class="small button radius" id="r-submit"><i class="fa fa-spinner fa-spin"></i> 提 交 </a>
+									<a class="button hollow radius secondary small" data-close aria-label="Close modal"> 取 消 </a>
+								</div>
+							</div>
+						</div>
+						<button class="close-button" data-close aria-label="Close modal" type="button">
+				    		<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="tiny reveal" id="set-success" data-reveal>
+						<div class="reveal-header">
+							<div class="reveal-title">编辑成功</div>
+						</div>
+						<div class="reveal-modcon">
+							<div class="row margin-t margin-b">
+								<div class="small-12 column">
+									<label>
+						        		编辑成功
+						    		</label>
+								</div>
+							</div>
+						</div>
+						<div class="reveal-footer">
+							<div class="row">
+								<div class="small-12 columns">
+									<a class="button hollow radius success small" data-close aria-label="Close modal">确定</a>
+								</div>
+							</div>
+						</div>
+						<button class="close-button" data-close aria-label="Close modal" type="button">
+				    		<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				</div>
+
+				<div class="go" id="frame_go">
+					<a title="返回顶部" class="gotop" id="goTop"></a>
+					<a title="返回底部" class="gobottom" id="goBottom"></a>
+				</div>
+
+				<div class="footer" id="frame_footer">
+					<div class="row clearfix" id="data_footer">
+						<div class="copyright">
+							&copy; 2015&nbsp;
+							<a href="#">今日头条</a>&nbsp;&nbsp; Theme By&nbsp;
+							<a href="#">Sky</a>
+						</div>
+						<div class="subnav">
+							<a href="#" title="免责声明">免责声明</a>
+							<a href="#" title="留言板">留言板</a>
+							<a href="#" title="友情链接">友情链接</a>
+							<a href="#" title="归档页面">归档页面</a>
+						</div>
+					</div>
+				</div>
+
+				<!--弹出框-->
+				<div id="frame_myModal">
+					<!--右侧弹出层-->
+					<div id="slide-content" class="slide-content tiny" aria-hidden="true">
+						<div class="tab-default pannel">
+							<div class="tab" id="tab_basic">
+								<div class="tabhead float-left">
+									编  辑
+								</div>
+								<ul class="clearfix float-right">
+									<li class="on">基础信息</li>
+									<li>统计</li>
+									<li>推送</li>
+								</ul>
+							</div>
+							<div class="modcon ">
+								<div class="tab_swiper margin-t">
+									<!--基础信息-->
+									<div id="data_tabdefault_con1" style="display:block;">
+										<input type="hidden" name="featureId"/>
+										<div class="row">
+											<div class="large-2 small-3 column no-padding">
+												<label class="text-right">标题：</label>
+											</div>
+											<div class="large-10 small-9 column end">
+												<input type="text" value="独家｜遗产?神坑?川普和小伙伴如何接盘利维坦美国" />
+											</div>
+										</div>
+										<div class="row">
+											<div class="large-2 small-3 column no-padding">
+												<label class="text-right">所属栏目：</label>
+											</div>
+											<div class="large-10 small-9 column end">
+												<label class="margin-t6 margin-b">
+													<textarea class="hero-demo" id="category"></textarea>
+												</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="large-2 small-3 column no-padding">
+												<label class="text-right">时间：</label>
+											</div>
+											<div class="large-10 small-9 column end">
+												<input type="text" value="2017-01-18 14:33" />
+											</div>
+										</div>
+										<div class="row">
+											<div class="large-2 small-3 column no-padding">
+												<label class="text-right">来源：</label>
+											</div>
+											<div class="large-10 small-9 column margin-b">
+												<label>新华网</label>
+											</div>
+										</div>
+										<div class="row">
+											<div class="large-2 small-3 column no-padding">
+												<label class="text-right">内容：</label>
+											</div>
+											<div class="large-10 small-9 column end">
+												<textarea name="content-text" placeholder="请输入内容" rows="3" cols="1"></textarea>
+											</div>
+										</div>
+										<div class="row">
+											<div class="large-2 small-3 column no-padding">
+												<label class="text-right">标签：</label>
+											</div>
+											<div class="large-10 small-9 column end">
+												<div class="news-tag margin-t6 margin-b">
+													<textarea class="hero-demo" id="tag-set"></textarea>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="large-2 small-3 column no-padding">
+												<label class="text-right">评分：</label>
+											</div>
+											<div class="large-10 small-9 column end">
+												<div class="small-12 large-12 medium-12 end ">
+													<div id="raty" class="recommended" data-number="5" data-path="images/raty"></div><span id="">
+														（共5分）
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--统计-->
+									<div id="data_tabdefault_con2" style="display:none;">
+									</div>
+									<!--推送-->
+									<div id="data_tabdefault_con3" style="display:none;">
+										<div class="screening-conditions">
+											<label class="title">当前推送对象的条件列表:<a class="button no-margin-b tiny radius margin-l10" href="#" data-open="create-conditions"><i class="fa fa-plus" aria-hidden="true"></i>添加推送人群</a></label>
+											<div class="sure_condition" id="pop-set">
+												<ul>
+											
+												</ul>
+											</div>
+										</div>
+										<div class="screening-article margin-t">
+											<label class="title">当前关联的文章:<a class="button no-margin-b tiny radius margin-l10" href="#" data-open="rel-article"><i class="fa fa-plus" aria-hidden="true"></i>创建关联文章</a></label>
+											<div class="sure_article">
+												<ul>
+													<li>
+														<a data-open="create-conditions">1.福建省第政府军阿斯蒂芬噶山豆根;</a>
+														<a class="condition-close">×</a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="reveal-footer clearfix">
+							<div class="row float-right margin-t6">
+								<div class="small-12 columns">
+									<a class="button hollow radius secondary small" data-close aria-label="Close modal"> 取 消 </a>
+									<a class="small button radius" id="feature-sub"> 提 交 </a>
+								</div>
+							</div>
+						</div>
+						<a class="close-slide-content" aria-label="Close" title="关闭">&#215;</a>
+					</div>
+					<!--创建条件弹框-->
+					<div class="reveal small" id="create-conditions" data-reveal>
+						<div class="reveal-header">
+							<div class="reveal-title">请选择标签项</div>
+						</div>
+						<div class="reveal-modcon edit-set">
+							<div class="tag-form">
+								<div class="condition-list">
+									<div class="step_title">条件菜单<span class="font-s12 font-gray margin-l6">(选择条件菜单生成条件表单)</span><a class="btn_togglle"><i class="fa fa-angle-up"></i></a></div>
+									<ul class="clearfix">
+										<li>
+											<a href="#" data-tag-id="mapPick">地域</a>
+											<span class="checked"></span>
+										</li>
+										<li>
+											<a href="#" data-tag-id="tag-age">年龄</a>
+											<span class="checked"></span>
+										</li>
+										<li>
+											<a href="#" data-tag-id="tag-sex">性别</a>
+											<span class="checked"></span>
+										</li>
+										<li>
+											<a href="#" data-tag-id="tag-work">职业</a>
+											<span class="checked"></span>
+										</li>
+										<li>
+											<a href="#" data-tag-id="tag-preference">偏好</a>
+											<span class="checked"></span>
+										</li>
+									</ul>
+								</div>
+								<div class="selected_list">
+									<div class="step_title">已选条件内容表单</div>
+									<div class="condition-form">
+										<div class="row" id="mapPick" style="display: none;">
+											<div class="large-2 medium-2 small-2 column">
+												<label class="text-right">地域：</label>
+											</div>
+											<div class="large-4 medium-4 small-4 columns">
+												<select class="city-province" name="province"></select>
+											</div>
+											<div class="large-4 medium-4 small-4 columns">
+												<select class="city-city" name="city"></select>
+											</div>
+											<div class="large-1 medium-2 small-2 column end">
+												<label><a class="condition-close">×</a></label>
+											</div>
+										</div>
+										<div class="row" id="tag-age" style="display: none;">
+											<div class="large-2 medium-2 small-2 column">
+												<label class="text-right">年龄：</label>
+											</div>
+											<div class="large-4 medium-4 small-4 columns input-line">
+												<input type="text" class="begin-age" placeholder="请输入起始年龄" required="">
+											</div>
+											<div class="large-4 medium-4 small-4 columns end">
+												<input type="text" class="end-age" placeholder="请输入截止年龄" required="">
+											</div>
+											<div class="large-1  medium-2 small-2 column">
+												<label>（岁）</label>
+											</div>
+											<div class="large-1 medium-2 small-2 column end">
+												<label><a class="condition-close">×</a></label>
+											</div>
+										</div>
+										<div class="row" id="tag-sex" style="display: none;">
+											<div class="large-2 medium-2 small-2 column">
+												<label class="text-right">性别：</label>
+											</div>
+											<div class="large-4 medium-9 small-12 columns end">
+												<label>
+					        						<input type="radio" name="sex" value="男" id="man" /><label for="man">男</label>
+													<input type="radio" name="sex" value="女" id="women" /><label for="women">女</label>
+													<input type="radio" name="sex" value="不限" id="ok" checked="checked" /><label for="ok">不限</label>
+												</label>
+											</div>
+											<div class="large-1 medium-2 small-2 column end">
+												<label><a class="condition-close">×</a></label>
+											</div>
+										</div>
+										<div class="row" id="tag-work" style="display: none;">
+											<div class="large-2 medium-2 small-2 column">
+												<label class="text-right">职业：</label>
+											</div>
+											<div class="large-4 medium-4 small-6 columns end">
+												<input type="text" class="occupation" name="job" placeholder="请输入职业" required="">
+											</div>
+											<div class="large-1 medium-2 small-2 column end">
+												<label><a class="condition-close">×</a></label>
+											</div>
+										</div>
+										<div class="row" id="tag-preference" style="display: none;">
+											<div class="large-2 medium-2 small-2 column">
+												<label class="text-right">偏好：</label>
+											</div>
+											<div class="large-4 medium-4 small-6 columns end">
+												<input type="text" class="hobby" name="hobby" placeholder="请输入爱好" required="">
+											</div>
+											<div class="large-1 medium-2 small-2 column end">
+												<label><a class="condition-close">×</a></label>
+											</div>
+										</div>
+								
+									</div>
+								</div>
+								<div class="condition-name">
+									<div class="step_title">创建条件的名称</div>
+									<div class="row margin-t">
+										<div class="large-2 medium-2 small-2 column">
+											<label class="font-s12">条件名称：</label>
+										</div>
+										<div class="large-4 medium-4 small-6 columns end">
+											<input type="text" class="occupation" name="name" value="青少年" required="">
+										</div>
+									</div><div class="row margin-t">
+										<div class="large-2 medium-2 small-2 column">
+											<label class="font-s12">推送级别：</label>
+										</div>
+										<div class="large-4 medium-4 small-6 columns end">
+											<label><input type="number" name="rank" class="no-margin-b" min="1" max="10" value="1" required=""></label>
+											<span class="font-gray font-s12">总计别为10,默认推送级别为1级</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="reveal-footer float-right">
+							<div class="row">
+								<div class="small-12 columns">
+									<a class="button hollow radius secondary small" data-close aria-label="Close modal"> 取 消 </a>
+									<a class="small button radius" id="pop-scope">创 建</a>
+								</div>
+							</div>
+						</div>
+						<button class="close-button" data-close aria-label="Close modal" type="button">
+				    		<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<!--相似文章弹框-->
+					<div class="reveal small" id="rel-article" data-reveal>
+						<div class="reveal-header">
+							<div class="reveal-title">相似文章推荐</div>
+						</div>
+						<div class="reveal-modcon edit-set margin-t margin-b">
+							<form>
+								<div class="row">
+									<div class="large-2 medium-2 small-4 column">
+										<label>文章关系：</label>
+									</div>
+									<div class="large-10 medium-10 small-8 columns">
+										<select id="sel">
+											<option selected="">11</option>
+											<option>22</option>
+											<option>33</option>
+											<option>44</option>
+										</select>
+									</div>
+								</div>
+								<div class="row">
+									<div class="large-2 medium-2 small-4 column">
+										<label>文章名称：</label>
+									</div>
+									<div class="large-10 medium-10 small-8 columns">
+										<input id="search" class="no-margin" type="text" placeholder="请输入文章名称" autofocus="true" value="" />
+										<ul id="suggestion" class="ac_result">
+											<li class="clearfix"><span class="ac_word">名称1</span></li>
+											<li class="clearfix"><span class="ac_word">名称2</span></li>
+											<li class="clearfix"><span class="ac_word">名称3</span></li>
+										</ul>
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="reveal-footer float-right">
+							<div class="row">
+								<div class="small-12 columns">
+									<a class="button hollow radius secondary small" data-close aria-label="Close modal"> 取 消 </a>
+									<a class="small button radius" id="article-sure"> 提 交 </a>
+								</div>
+							</div>
+						</div>
+						<button class="close-button" data-close aria-label="Close modal" type="button">
+				    		<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+				</div>
+
+				<div id="frame_javascript">
+					<script src="javascript/vendor/foundation.js"></script>
+					<script src="javascript/vendor/what-input.js"></script>
+					<script src="javascript/swiper-3.3.1.min.js"></script>
+					<script src="javascript/vendor/jquery.raty.js"></script>
+					<script src="javascript/vendor/jquery.select-city.js" charset="utf8"></script>
+					<script src="javascript/jquery.caret.min.js"></script>
+					<script src="javascript/jquery.tag-editor.min.js"></script>
+					<script src="javascript/vendor/index.js"></script>
+					<script src="javascript/tab.exam.js" type="text/javascript" charset="utf-8"></script>
+					<script src="javascript/other.js"></script>
+					<script src="javascript/js/form.submit.js"></script>
+					
+					<script>
+						$(document).foundation();
+						//标签
+						//评分
+						$('#raty').raty({
+							path: function() {
+								return this.getAttribute('data-path'); //图片路径
+							},
+							number: function() {
+								return $(this).attr('data-number'); //星星数量
+							},
+							starOn: 'star-smile-gorgeous.png', //激活星星图标
+							starOff: 'star-smile-off.png', //未激活星星图标
+							halfShow: 'true', //是否显示半颗星星
+						});
+
+						//tab
+						new o_tab().init("tab_basic", "li", "data_tabdefault_con", "on", "", 1, "");
+						var swiper = new Swiper('#topSwiper', {
+							scrollbar: '.swiper-scrollbar',
+							slidesPerView: 'auto',
+							mousewheelControl: true,
+							freeMode: true
+						});
+						//					    var swiper = new Swiper('#topSwiper', {
+						//					        scrollbar: '.swiper-scrollbar',
+						//					        scrollbarHide: true,
+						//					        slidesPerView: 'auto',
+						//					        centeredSlides: true,
+						//					        spaceBetween: 30,
+						//					        grabCursor: true
+						//					    });
+
+						//地市
+						e.selectareas.init($('#mapPick'));
+					</script>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

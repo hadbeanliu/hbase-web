@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugins>
+	<plugin id="score-time" name="analysis item with params" version="1.0.1" provider-name="liuhaibin">
+		
+		<extension id="score-time" name="scoring" point="com.lhb.data.plugin.filter.ScoreFilter">
+					
+		<implemention id="test" class="com.lhb.data.plugin.filter.score.TimeScoring">
+		
+		</implemention>
+			
+		</extension>
+
+	</plugin>
+	
+	<plugin id="user-item-score" name="analysis item with params" version="1.0.1" provider-name="liuhaibin">
+		
+		<extension id="user-item-score" name="scoring" point="com.lhb.data.plugin.filter.ScoreFilter">
+					
+		<implemention id="test" class="com.lhb.data.plugin.filter.score.UserItemScoring">
+		
+		</implemention>
+			
+		</extension>
+
+	</plugin>
+	
+		<plugin id="base-act-score" name="analysis item with params" version="1.0.1" provider-name="liuhaibin">
+		
+		<extension id="base-act-score" name="scoring" point="com.lhb.data.plugin.filter.ScoreFilter">
+		
+		<implemention id="test" class="com.lhb.data.plugin.filter.score.ActScoring">
+		
+		</implemention>
+			
+		</extension>
+
+	</plugin>
+	
+		<plugin id="test-score" name="analysis item with params" version="1.0.1" provider-name="liuhaibin">
+		
+		<extension id="test-score" name="scoring" point="com.lhb.data.plugin.filter.ScoreFilter">
+		
+		<implemention id="test" class="com.liu.plugin.Test.TestScorePlugin">
+		
+		</implemention>
+		
+		</extension>
+
+	</plugin>
+	
+</plugins>

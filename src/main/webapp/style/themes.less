@@ -1,0 +1,686 @@
+@charset "utf-8";
+@import "variable.less";
+/* CSS Document */
+/*
+LOGO图标：@t-logo;
+BANNER图片：@t-banner-pc;
+页面背景图片：@body-bg-img;
+背景色调：@background-color;
+背景图片平铺方式:@background-repeat;
+背景图片锁定方式:@background-attachment;
+背景图片对齐方式:@background-position;
+主色调：@primary-color;
+模块外框色调：@mod-color;
+面板色调：@panel-color;
+正文色调：@base-font-color;
+正文字号：@body-font-size;
+
+直角模块：
+大模块：mod-rec-l1;mod-rec-l2;
+主模块：mod-rec-m1;
+次模块：mod-rec-s1;
+TAB模块：tab-rec-1;tab-rec-2;
+
+圆角模块：
+大模块：mod-cir-l1;mod-cir-l2;
+主模块：mod-cir-m1;
+次模块：mod-cir-s1;
+TAB模块：tab-cir-1;tab-cir-2;
+
+直角数据块：data-cir-1,data-cir2;
+圆角数据块：data-cir-01,data-cir-02;
+
+强调的数据块：em-dcon;
+LI强调信息：em-news;
+LI前缀：preicon;
+类别：sort
+时间：time
+
+头部工具栏：tool-bar
+头部banner:(大于768时调用@t-banner-pc;小于768时调用@t-banner-phone;等于768时调用@t-banner-pad:)
+底部：footer
+面包屑：breadcrumbs
+HOT小图标：hot
+NEWS小图标：news
+*/
+
+/*字体*/
+body {
+    background:;
+    font-size: @body-font-size;
+    color: @base-font-color;
+    font-family: @body-font-family;
+}
+
+/*链接*/
+a {
+    color: @base-font-color;
+    text-decoration: none;
+}
+a:focus,
+a:hover {
+    color: @base-link-font-color;
+}
+
+/*文字颜色*/
+.p-color,
+.p-color a,
+.p-color a:hover,
+.p-color:hover {
+    color: @primary-color;
+}
+.s-color,
+.s-color a,
+.s-color a:hover,
+.s-color:hover {
+    color: @secondary-color;
+}
+.more a,
+.part a,
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+    color: @primary-color;
+}
+.font-s12{font-size: 12px !important;}
+/*边框样式*/
+.p-border {
+    border: @base-border-width @base-border-style @base-border-color;
+}
+.s-border {
+    border: @secondary-border-width @secondary-border-style @secondary-border-color;
+}
+.no-border {
+    border: none !important;
+}
+
+/*边距*/
+.margin-t {
+    margin-top: @mod-outer-margin-top;
+}
+.margin-r {
+    margin-right: @mod-outer-margin-top;
+}
+.margin-b {
+    margin-bottom: @mod-outer-margin-top;
+}
+.margin-l {
+    margin-left: @mod-outer-margin-top;
+}
+.margin-t6 {
+    margin-top: 6px;
+}
+.margin-r6 {
+    margin-right: 6px;
+}
+.margin-b6 {
+    margin-bottom: 6px;
+}
+.margin-l6 {
+    margin-left: 6px;
+}
+.margin-t10 {
+    margin-top: 10px;
+}
+.margin-r10 {
+    margin-right: 10px;
+}
+.margin-b10 {
+    margin-bottom: 10px;
+}
+.margin-l10 {
+    margin-left: 10px;
+}
+
+.padding-t {
+    padding-top: @modcon-inner-padding;
+}
+.padding-r {
+    padding-right: @modcon-inner-padding;
+}
+.padding-b {
+    padding-bottom: @modcon-inner-padding;
+}
+.padding-l {
+    padding-left: @modcon-inner-padding;
+}
+@media only screen and(min-width:641px) {
+    .no-margin-l {
+        margin-left: 0 !important;
+    }
+    .no-margin-r {
+        margin-right: 0 !important;
+    }
+    .no-margin-t {
+        margin-top: 0 !important;
+    }
+    .no-margin-b {
+        margin-bottom: 0 !important;
+    }
+    .no-padding-l {
+        padding-left: 0 !important;
+    }
+    .no-padding-r {
+        padding-right: 0 !important;
+    }
+    .no-padding-t {
+        padding-top: 0 !important;
+    }
+    .no-padding-b {
+        padding-bottom: 0 !important;
+    }
+    .no-margin {
+        margin: 0 !important;
+    }
+    .no-padding {
+        padding: 0 !important;
+    }
+}
+@media only screen and (min-width:640px) and (max-width:768px) {
+    .medium-no-margin {
+        margin: 0 !important;
+    }
+    .medium-no-padding {
+        padding: 0 !important;
+    }
+    .medium-no-padding-l {
+        padding-left: 0 !important;
+    }
+    .medium-no-padding-r {
+        padding-right: 0 !important;
+    }
+    .medium-no-padding-t {
+        padding-top: 0 !important;
+    }
+    .medium-no-padding-b {
+        padding-bottom: 0 !important;
+    }
+    .medium-no-margin-l {
+        margin-left: 0 !important;
+    }
+    .medium-no-margin-r {
+        margin-right: 0 !important;
+    }
+    .medium-no-margin-t {
+        margin-top: 0 !important;
+    }
+    .medium-no-margin-b {
+        margin-bottom: 0 !important;
+    }
+    .medium-no-border {
+        border: none !important;
+    }
+    /*公开意见箱*/
+    .modcon li.column {
+        width: 100px !important;
+    }
+}
+@media only screen and (max-width:639px) {
+    .small-no-margin {
+        margin: 0 !important;
+    }
+    .small-no-padding {
+        padding: 0 !important;
+    }
+    .small-no-padding-l {
+        padding-left: 0 !important;
+    }
+    .small-no-padding-r {
+        padding-right: 0 !important;
+    }
+    .small-no-padding-t {
+        padding-top: 0 !important;
+    }
+    .small-no-padding-b {
+        padding-bottom: 0 !important;
+    }
+    .small-no-margin-l {
+        margin-left: 0 !important;
+    }
+    .small-no-margin-r {
+        margin-right: 0 !important;
+    }
+    .small-no-margin-t {
+        margin-top: 0 !important;
+    }
+    .small-no-margin-b {
+        margin-bottom: 0 !important;
+    }
+    .small-no-border {
+        border: none !important;
+    }
+    .small-text-left {
+        text-align: left;
+    }
+}
+/*表单按钮，默认按钮：button; 按钮风格2：secondary 不可点击按钮：disabled;  扩展按钮：expand*/
+.button,
+button {
+    background-color: @primary-color;
+    font-size: @base-font-size;
+}
+.button:hover,
+button:hover {
+    background-color: darken(@primary-color,10%);
+}
+.button:active,
+button:active {
+    background-color: darken(@primary-color,10%);
+}
+
+.button.primary {
+    background-color: @primary-color;
+    color: #fefefe;
+}
+.button.primary:focus,
+.button.primary:hover {
+    background-color: darken(@primary-color,10%);
+    color: #fefefe;
+}
+.button.secondary {
+    background-color: @secondary-color;
+    color: #fefefe;
+}
+.button.secondary:focus,
+.button.secondary:hover {
+    background-color: darken(@secondary-color,10%);
+    color: #fefefe;
+}
+.button.success {
+    background-color: @success-color;
+    color: #fefefe;
+}
+.button.success:focus,
+.button.success:hover {
+    background-color: darken(@success-color,10%);
+    color: #fefefe;
+}
+.button.warning {
+    background-color: @warning-color;
+    color: #fefefe;
+}
+.button.warning:focus,
+.button.warning:hover {
+    background-color: darken(@warning-color,10%);
+    color: #fefefe;
+}
+.button.alert {
+    background-color: @alert-color;
+    color: #fefefe;
+}
+.button.alert:focus,
+.button.alert:hover {
+    background-color: darken(@alert-color,10%);
+    color: #fefefe;
+}
+.button.info {
+    background-color: @info-color;
+    color: #fefefe;
+}
+.button.info:focus,
+.button.info:hover {
+    background-color: darken(@info-color,10%);
+    color: #fefefe;
+}
+.button.hollow {
+    border-color: 1px solid @primary-color;
+    color: @primary-color;
+}
+.button.hollow,
+.button.hollow:focus,
+.button.hollow:hover {
+    background-color: transparent;
+}
+.button.hollow:focus,
+.button.hollow:hover {
+    border-color: darken(@primary-color,15%);
+    color: darken(@primary-color,15%);
+}
+.button.hollow.primary {
+    border-color: 1px solid @primary-color;
+    color: @primary-color;
+}
+.button.hollow.primary:focus,
+.button.hollow.primary:hover {
+    border-color: darken(@primary-color,15%);
+    color: darken(@primary-color,15%);
+}
+.button.hollow.secondary {
+    border: 1px solid @secondary-color;
+    color: @secondary-color;
+}
+.button.hollow.secondary:focus,
+.button.hollow.secondary:hover {
+    border-color: darken(@secondary-color,15%);
+    color: darken(@secondary-color, 15%);
+}
+.button.hollow.success {
+    border: 1px solid @success-color;
+    color: @success-color;
+}
+.button.hollow.success:focus,
+.button.hollow.success:hover {
+    border-color: darken(@success-color,15%);
+    color: darken(@success-color,15%);
+}
+.button.hollow.warning {
+    border: 1px solid @warning-color;
+    color: @warning-color;
+}
+.button.hollow.warning:focus,
+.button.hollow.warning:hover {
+    border-color: darken(@warning-color,15%);
+    color: darken(@warning-color,15%);
+}
+.button.hollow.alert {
+    border: 1px solid @alert-color;
+    color: @alert-color;
+}
+.button.hollow.alert:focus,
+.button.hollow.alert:hover {
+    border-color: darken(@alert-color,15%);
+    color: darken(@alert-color,15%);
+}
+.button.hollow.info {
+    border: 1px solid @info-color;
+    color: @info-color;
+}
+.button.hollow.info:focus,
+.button.hollow.info:hover {
+    border-color: darken(@info-color,15%);
+    color: darken(@info-color,15%);
+}
+.close-button {
+    background: none;
+}
+.close-button:hover {
+    background: none;
+    color: #ed4040;
+}
+.radius {
+    border-radius: @border-radius;
+}
+/*输入框*/
+select,input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"] {
+    font-size: @base-font-size;
+    height: 32px;
+    line-height: 32px;
+    font-size: 12px;
+    padding: 0 0 0 10px;
+    border-radius: 4px;
+}
+/*下拉框*/
+select,
+textarea {
+    font-size: @base-font-size;
+}
+/*reveal-modal*/
+.reveal {
+    padding: 0 1rem;
+}
+.reveal.tiny {
+    width: 100%;
+    max-width: 320px;
+}
+.reveal.small {
+    width: 100%;
+    max-width: 768px;
+//  min-height: 400px;
+}
+.reveal.large {
+    width: 100%;
+    max-width: 75rem;
+}
+.reveal-title {
+    height: 50px;
+    border-bottom: 1px solid #ddd;
+    line-height: 50px;
+    font-size: 1rem;
+}
+.reveal-modcon{padding: 10px 0;min-height: 300px;}
+/*布局背景*/
+.wrapper {
+    background: @body-bg-img;
+    background-color: @body-bg-color;
+    background-repeat: @background-repeat;
+    background-attachment: @background-attachment;
+    background-position: @background-position;
+}
+
+/*header*/
+.header {
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 1px rgba(128, 128, 128, 0.3);
+}
+
+/*工具条*/
+.tool-bar {
+    height: 27px;
+    line-height: 27px;
+    border-bottom: #dddddd solid 1px;
+    background-color: #f5f5f5;
+}
+
+/*banner*/
+.logo {
+    display: block;
+    background: @t-logo;
+    width: 205px;
+    height: 65px;
+    background-size: 150px;
+}
+.banner {
+    background: @t-banner-pc;
+    background-size: cover;
+    background-color: @t-banner-color;
+    border-bottom: 3px solid darken(@primary-color,10%);
+}
+
+/*主导航*/
+.top-bar {
+    font-family: "微软雅黑";
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    margin: 0 auto;
+    padding: 0 60px 0 0;
+    background: #fff;
+}
+.top-bar a {
+    padding: 7px 16px;
+    font-size: 14px;
+}
+.top-bar a:hover {
+    border-bottom: 3px solid @primary-color;
+    text-decoration: none;
+}
+.top-bar .btn_more.hover,
+.top-bar a.active,
+.top-bar a.active:hover {
+    border-bottom: 3px solid @primary-color;
+}
+@media screen and (max-width:992px) {
+    .logo {
+        margin-left: 10px;
+    }
+}
+@media screen and (max-width:639px) {
+    .top-bar {
+        height: 24px;
+        line-height: 24px;
+        padding: 0 30px 0 0;
+        box-shadow: 0 2px 2px rgba(71,73,72,0.25);
+    }
+    .top-bar a {
+        font-size: 12px;
+        padding: 0 10px;
+    }
+    .btn_more:before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 10px;
+        left: -6px;
+        background: url("../images/shadow.png") no-repeat center center;
+        background-size: contain;
+    }
+    .logo {
+        margin: 0;
+        width: 100px;
+        height: 40px;
+        background-size: 94px;
+    }
+}
+
+/*底部*/
+.footer {
+    padding: 10px 0 25px 10px;
+    background-color: #FFFFFF;
+    color: #000;
+    font-size: 13px;
+    box-shadow: 0 -1px 1px rgba(128, 128, 128, 0.3);
+}
+.footer .subnav a {
+    color: #000;
+    margin-right: 15px;
+}
+.footer .copyright,
+.footer .copyright a {
+    color: #000;
+}
+.footer .copyright {
+    float: left;
+}
+.footer .subnav {
+    float: right;
+}
+@media screen and (max-width:639px) {
+    .footer {
+        padding: 15px 0 16px 10px;
+    }
+    .footer .subnav {
+        display: none;
+    }
+    .footer .copyright {
+        float: none;
+        text-align: center;
+    }
+}
+
+/*默认模块*/
+.modhead {
+    background: darken(@panel-color,2%);
+    height: 32px;
+    line-height: 32px;
+    border: darken(@panel-color,10%) @base-border-width @base-border-style;
+    border-top: @primary-color solid 2px;
+}
+.modtitle {
+    float: left;
+    padding-left: 15px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+}
+.modtitle a {
+    color: @mod-color;
+}
+.modmore {
+    float: right;
+    padding-right: 6px;
+}
+.modmore a {
+    background: url("../images/more.png") no-repeat right center;
+    padding-right: 13px;
+}
+.modcon {
+    background: @panel-color;
+    padding: 10px;
+    border: darken(@panel-color,10%) @base-border-width @base-border-style;
+    border-width: 0 1px 1px;
+}
+
+/*topline*/
+
+/*topline1*/
+/*main*/
+.new-info span {
+    font-size: 12px;
+    padding: 0 6px;
+    color: gray;
+}
+.new-info .label {
+    background: none;
+    color: @primary-color;
+    border: 1px solid @primary-color;
+    padding: 2px;
+    margin-right: 4px;
+}
+.news-controls {
+    font-size: 12px;
+}
+.news-controls a,
+.news-controls span {
+    margin-left: 6px;
+}
+
+//编辑弹窗
+.slide-content.open {
+    right: 0;
+}
+/*推送tab*/
+.tag-form{padding:20px;}
+.tag-form ul {
+    margin:0  -0.4375rem 10px;
+    padding-top: 20px;
+}
+
+.tag-form ul li {
+    float: left;
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    width: 20%;
+    padding: 0 0.4375rem;
+    text-align: center;
+}
+
+.tag-form ul li a {
+    display: block;
+    font-size: 12px;
+    border: 1px solid @primary-color;
+}
+.tag-form ul li a.active{background: @primary-color;color: #fff;}
+.tag-form .step_title{font-size: 14px;height: 30px;border-bottom: 1px solid #ddd;}
+.btn_togglle{float: right;font-size: 16px;    float: right; font-size: 16px; display: inline-block;width: 30px;height: 30px;text-align: center;}
+.selected_list label{font-size: 12px;}
+.selected_list select{font-size: 12px;}
+.condition-close{
+    font-size: 16px;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    border-radius: 4px;
+    background: #eee;
+    text-align: center;
+    line-height: 20px;
+}
+.condition-close:hover{
+    background: @primary-color;
+    color: #fff;
+}

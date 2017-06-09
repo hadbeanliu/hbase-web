@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:hdp="http://www.springframework.org/schema/hadoop" xmlns:cache="http://www.springframework.org/schema/cache"
+	xsi:schemaLocation=" 
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd 
+        http://www.springframework.org/schema/hadoop http://www.springframework.org/schema/hadoop/spring-hadoop-2.0.xsd">
+
+	<context:component-scan base-package="com.lhb.data" />
+	<hdp:configuration resources="classpath:hbase-site.xml" />
+
+	<hdp:hbase-configuration configuration-ref="hadoopConfiguration" />
+
+	<!-- 系统配置文件读取 -->
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:configuration.properties</value>
+		</property>
+	</bean>
+
+	<bean id="htemplate" class="com.lhb.data.dao.HbaseDaoImpl">
+		<property name="configuration" ref="hbaseConfiguration">
+		</property>
+	</bean>
+
+
+
+	<bean id="cmsFactory" class="com.rongji.cms.webservice.client.json.CmsClientFactory">
+		<constructor-arg index="0">
+			<value>${xwtj.url}</value>
+		</constructor-arg>
+		<constructor-arg index="1">
+			<value>${xwtj.client.id}</value>
+		</constructor-arg>
+		<constructor-arg index="2">
+			<value>${xwtj.client.token}</value>
+		</constructor-arg>
+		<!-- <property name="clientId" value="${xwtj.client.id}"/>
+		<property name="clientToken" value="${xwtj.client.token}"/>
+		<property name="serverAddress" value="${xwtj.url}"/> -->
+
+	</bean>
+
+</beans>

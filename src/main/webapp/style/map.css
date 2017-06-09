@@ -1,0 +1,123 @@
+
+/*map-pin-box*/
+.white-bg{
+    background: #ffffff;
+}
+#mapContainer{
+    height: 300px;
+}
+.map-pin-box{
+    position: relative;
+}
+.map-pin-box a.pic-map{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: block;
+    width: 40px;
+    height: 37px;
+    line-height: 37px;
+    text-align: center;
+    cursor: pointer;
+    color: #999;
+    font-size: 20px;
+    background: url(../images/mapPick.png) no-repeat 12px 10px;
+}
+.map-pin-box input{
+    width: 100%;
+    -webkit-appearance: none;
+    border-radius: 0;
+    background-color: #ffffff;
+    font-family: inherit;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #cccccc;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.75);
+    display: block;
+    font-size: 14px;
+    padding: 8px;
+    *padding: 0px;
+    _padding: 0px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    transition: all 0.15s linear;
+    margin: 0;
+    clear:both;
+    z-index: 1;
+    height: 36px;
+    line-height: 36px;
+    _height: 36px;
+    _line-height: 36px;
+
+    _text-indent: 10px;
+    padding-right: 35px;
+}
+
+.map-pin-box i:hover{color: #2898fd;}
+.map-piker-show{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    /*box-shadow: 0px 0px 1px 0px  #999;*/
+    border: 1px solid #f2f2f2;
+    display: none;
+    z-index: 1;
+}
+.result-box{
+    position: absolute;
+    background: white;
+    z-index: 10;
+    width: 100%;
+    box-shadow: 0px 0px 3px 0px #999;
+    font-size: 13px;
+    line-height: 20px;
+}
+.amap-copyright{
+    display: none !important;
+}
+.map-annotation{
+    background: #ffffff;
+    font-size: 14px;
+    height: 30px;
+    padding: 0px 5px;
+    line-height: 30px;
+}
+.map-annotation .annot1{
+    float: left;
+}
+.map-annotation .annot2{
+    float: right;
+    cursor: pointer;
+}
+.amap-logo{
+    /*display: none;*/
+}
+.amap-info-outer, .amap-menu-outer{
+    box-shadow: 0 3px 14px rgba(0,0,0,.6);
+}
+
+/*select */
+.standard_select{ /*边框*/
+    display:inline-block;
+    border:solid 1px #E3E9EF;
+    /*border-top-color:#ABADB3;*/
+    padding:5px; /*调整此处改变select高度*/
+    *padding:8px ;
+    width: 130px;
+}
+.select_shelter{ /*遮挡默认边框*/
+    display:inline-block;
+    width:130px;
+    *width:98px;
+    height:24px;
+    /*overflow:hidden;*/
+}
+.select_shelter select{
+    *margin:-2px;
+    padding:2px;
+    border:0px;
+    width:130px; /*select的宽度*/
+}
+

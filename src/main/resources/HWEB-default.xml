@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+   <property>
+   		<name>plugin.parser</name>
+   		<value>false</value>
+   		
+   </property>
+
+
+	<!-- 采集器收集任务配置-->
+	<property>
+		<name>fetch.meta.save</name>
+		<value>title|content|author|fetchTime|pubData|keyWord|baseUrl|catagory|inlinks|outlinks</value>
+	</property>
+	<property>
+		<name>fetch.parsr.content</name>
+		<value>false</value>
+	</property>
+	<property>
+		<name>fetch.store.content</name>
+		<value>true</value>
+	</property>
+	<property>
+		<name>fetch.max.outlinks</name>
+		<value>100</value>
+	</property>
+	<property>
+		<name>fetch.max.inlinks</name>
+		<value>100</value>
+	</property>
+	<property>
+		<name>catagory.auto.rec</name>
+		<value>http://{host}:{port}/rec</value>
+	</property>
+	<!-- 自动推荐个数 -->
+	<property>
+		<name>catagory.default.auto.rec.num</name>
+		<value>3</value>
+	</property>
+	
+	
+	<!-- 插件管理 -->
+	<property>
+		<name>plugin.order</name>
+		<value></value>
+		<description>插件会按照当前顺序加载</description>
+	</property>
+	<property>
+		<name>plugin.include</name>
+		<value>score-time user-item-score base-act-score</value>
+	</property>
+	
+	<property>
+		<name>score.social.method</name>
+		<value></value>
+	</property>
+	<property>
+		<name>score.act.power</name>
+		<value></value>
+	</property>
+	
+</configuration>
