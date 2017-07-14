@@ -63,7 +63,7 @@ public class HbasetTemplateTest {
 		page.setPageSize(100);
 		// page.setCurrPage(0);
 		try {
-			for (int i = 1; i < 2000000; i++) {
+			for (int i = 710; i < 100000; i++) {
 				page.setCurrPage(i);
 				WsListResult<ArticleVo> vos = cmsFac.getArticleClient().findArticleVos(filter, page);
 				List<Put> puts=new ArrayList<>();
@@ -95,8 +95,11 @@ public class HbasetTemplateTest {
 					meta.put("ogUrl", vo.get("redirectUrl"));
 					meta.put("img", vo.get("image_title"));
 					meta.put("ogSite", vo.get("source"));
+					meta.put("auto", vo.get("isVote"));
+//					System.out.println(new Gson().toJson(vo));
+					
 //					System.out.println(item.getpCatagoryId());
-					itemService.put("headlines", TableUtil.IdReverse(vo.get("id")), item);
+//					itemService.put("headlines", TableUtil.IdReverse(vo.get("id")), item);
 					puts.add(toPut(TableUtil.IdReverse(vo.get("id")),item));
 					}catch(Exception e){
 						e.printStackTrace();
@@ -104,6 +107,7 @@ public class HbasetTemplateTest {
 					}
 
 				}
+
 				itemService.puts("headlines:item_meta_table", puts);
 				System.out.println("----------------------------------"+i*100);
 			}

@@ -1,15 +1,19 @@
 package com.lhb.cms.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CmsTest {
 
 
 	public static void main(String[] args) {
 		
-		String str="abc fef,fdfs";
+		List<String> list=new ArrayList<>();
+		list.add("a");
+		list.add("b");
 		
-		for(String s:str.split(",| ")){
-			System.out.println(s);
-		}
+//		list.spliterator()
+		
 		
 		
 	}

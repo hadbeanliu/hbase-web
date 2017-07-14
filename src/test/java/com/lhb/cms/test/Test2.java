@@ -1,103 +1,104 @@
 package com.lhb.cms.test;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
 
-import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.hbase.HBaseConfiguration;
-import org.apache.hadoop.hbase.HColumnDescriptor;
-import org.apache.hadoop.hbase.HTableDescriptor;
-import org.apache.hadoop.hbase.TableName;
-import org.apache.hadoop.hbase.client.HBaseAdmin;
-
-import com.google.gson.Gson;
+import com.lhb.data.common.HtmlParser;
+import com.lhb.data.common.MainWordExtractor;
+import com.rongji.cms.webservice.client.json.ArticleClient;
+import com.rongji.cms.webservice.client.json.CmsClientFactory;
+import com.rongji.cms.webservice.domain.WsArticleFilter;
+import com.rongji.cms.webservice.domain.WsArticleSynData.ArticleVo;
+import com.rongji.cms.webservice.domain.WsPage;
 
 public class Test2 {
 
-	private static Map<String, String> map1 = new HashMap<String, String>();
-	private static Map<String, String> map2 = new HashMap<String, String>();
+	public static void main(String[] args) throws Exception {
+		MainWordExtractor extor = new MainWordExtractor();
+		CmsClientFactory fac = new CmsClientFactory("http://cms.work.net", "00000002", "A7dCV37Ip96%86");
+		ArticleClient client = fac.getArticleClient();
+		WsArticleFilter filter = new WsArticleFilter();
 
-	static {
+		filter.setArIds("2017071219001454");
 
-		map1.put("1", "a");
-		map1.put("2", "b");
-		map2.put("name", "jack");
-		map2.put("age", "30");
+		WsPage page = new WsPage();
+	
+		ArticleVo article = client.findArticleVos(filter, page).getList().get(0);
+		String str = article.get("content");
+		System.out.println(str);
+//		String str="而是将所有零件移位到";
+//		String str="旧的零售的关注点不在于“人”，但是如今第五轮零售的变化恰恰就是由“人”所引发的变化";
+		System.out.println("del tag:>>>>>>>>>>>"+HtmlParser.delHTMLTag(str));
+		List<String> words = extor.simpleTokenize(HtmlParser.delHTMLTag(str));
+		System.out.println(words);
+		int index = 0;
+		StringBuffer sb = new StringBuffer();
+		char[] originChars = str.toCharArray();
+		String lowCaseContent = str.toLowerCase();
+		char[] chars = lowCaseContent.toCharArray();
 
-	}
+		System.out.println(lowCaseContent);
 
-	public static void clear() {
-		
-			
-			map1.clear();
-		
-		
+		for (String w : words) {
+			String tmp=lowCaseContent.substring(index);
+			if (tmp.indexOf(w) == -1)
+				continue;
 
-	}
+			if (w.equals("1.5"))
+				System.out.println("hehre");
 
-	public static void init() {
-		synchronized (map1) {
-			map1.put("1", ""+System.currentTimeMillis());
-			try {
-				Thread.sleep(10000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+			char[] ch = w.toCharArray();
+			boolean flag = true;
+			if (index >= chars.length) {
+				flag = false;
 			}
-		clear();
-		
-		map1.put("2", "b");
+			while (flag) {
+
+				if (ch[0] == chars[index]) {
+					flag = false;
+					for (int j = 1; j < ch.length; j++) {
+						if (ch[j] != chars[index + j]) {
+							flag = true;
+							break;
+						}
+					}
+					if (flag) {
+
+						sb.append(originChars[index]);
+						index++;
+
+					} else {
+						sb.append("<em class=\"margin-l\">").append(w).append("</em>");
+						index += ch.length;
+					}
+				} else {
+
+					if (chars[index] == '<' && ((index + 4) < chars.length) && chars[index + 1] == 'i'
+							&& chars[index + 2] == 'm' && chars[index + 3] == 'g') {
+						System.out.println(chars[index + 2] + chars[index + 3]);
+						sb.append("<img");
+						index += 3;
+
+						do {
+							index++;
+							sb.append(originChars[index]);
+						} while (chars[index] != '>');
+						index++;
+					} else {
+
+						sb.append(originChars[index]);
+						index++;
+					}
+				}
+				if (index >= chars.length) {
+					flag = false;
+				}
+			}
+
 		}
-	}
+		if (index < chars.length)
+			sb.append(str.substring(index));
 
-	public static String get(String key) {
-		return map1.get(key);
-	}
-
-	public static void main(String[] args) {
-		String ss="abcd";
-		System.out.println(ss.substring(1));
-	}
-
-	public static void do1() {
-		String ss="abcd";
-		System.out.println(ss.substring(1));
-	}
-
-}
-
-class RecMeta {
-
-	private String name;
-	private double value;
-
-	public RecMeta(String name) {
-		this.name = name;
-	}
-
-	public RecMeta(String name, double value) {
-		this.name = name;
-		this.value = value;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public double getValue() {
-		return value;
-	}
-
-	public void setValue(double span) {
-		this.value = span;
+		System.out.println(sb.toString());
 	}
 
 }

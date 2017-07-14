@@ -24,7 +24,7 @@
 
 	<property>
 		<name>hbase.rootdir</name>
-		<value>hdfs://master:9000/hbase</value><!-- 端口号和ip地址要与hadoop配置参数fs.default.name一致 -->
+		<value>hdfs://slave2:9000/hbase</value><!-- 端口号和ip地址要与hadoop配置参数fs.default.name一致 -->
 		<!--<value>file:///home/hadoop/hbase</value> -->
 	</property>
 
@@ -33,18 +33,18 @@
 		<value>true</value>
 	</property>
 
-	<property>
+	<!-- <property>
 		<name>dfs.replication</name>
 		<value>1</value>
-	</property>
+	</property> -->
 	<property>
 		<name>hbase.master</name>
-		<value>master:60000</value>
+		<value>slave2:60000</value>
 	</property>
 
 	<property>
 		<name>hbase.zookeeper.quorum</name>
-		<value>master</value>
+		<value>slave2</value>
 	</property>
 	<property>
 		<name>hbase.zookeeper.property.clientPort</name>
@@ -54,6 +54,15 @@
 		<name>hbase.hregion.memstore.flush.size</name>
 		<value>134217728</value>
 	</property>
+	<!-- <property>
+	  <name>zookeeper.znode.parent</name>
+	  <value>/hbase</value>
+	</property> -->
+	
+	<property>
+    <name>hbase.regionserver.dns.nameserver</name>
+    <value>slave2</value>
+  </property>
 
  	<property>
     		<name>hbase.tmp.dir</name>

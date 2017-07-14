@@ -1,5 +1,12 @@
 package com.lhb.hbase.test;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.text.DecimalFormat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -9,7 +16,8 @@ public class HtmlParser {
 	private static final String regEx_script = "<script[^>]*?>[\\s\\S]*?<\\/script>"; // 定义script的正则表达式
 	private static final String regEx_style = "<style[^>]*?>[\\s\\S]*?<\\/style>"; // 定义style的正则表达式
 	private static final String regEx_html = "<[^>]+>"; // 定义HTML标签的正则表达式
-	private static final String regEx_space = "\\s*|\t|\r|\n";//定义空格回车换行符  
+	private static final String regEx_space = "\\s*|\t|\r|\n";//定义空格回车换行符 
+	private static final String regEx_punc = "\\&[a-zA-Z]{1,10};";
 	/**
 	 * @param htmlStr
 	 * @return 删除Html标签
@@ -31,6 +39,10 @@ public class HtmlParser {
 		Matcher m_space = p_space.matcher(htmlStr);
 		htmlStr = m_space.replaceAll(""); // 过滤空格回车标签 
 		
+		Pattern p_punc =Pattern.compile(regEx_punc, Pattern.CASE_INSENSITIVE);
+		Matcher m_punc =p_punc.matcher(htmlStr);
+		htmlStr = m_punc.replaceAll("");
+		
 		return htmlStr.trim(); // 返回文本字符串
 
 		// htmlStr = m_space.replaceAll(""); // 过滤空格回车标签
@@ -47,6 +59,22 @@ public class HtmlParser {
 		DecimalFormat df = new DecimalFormat("#.00");
 		System.out.println(df.format(231.23123));
 		
+		try {
+			File file=new File("/home/hadoop/train/test");
+			BufferedReader read=new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+			StringBuffer sb=new StringBuffer();
+			String tmp="";
+			while ((tmp=read.readLine())!=null){
+				sb.append(tmp);
+			}
+			System.out.println(getTextFromHtml(sb.toString()));
+		} catch (FileNotFoundException e) {
+			
+			e.printStackTrace();
+		}catch (IOException e) {
+			
+			e.printStackTrace();
+		}
 
 	}
 }
