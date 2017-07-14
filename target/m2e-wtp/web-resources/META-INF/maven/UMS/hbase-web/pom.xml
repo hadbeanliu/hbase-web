@@ -43,7 +43,7 @@
 		<scala.version>2.10.4</scala.version>
 		<spark.version>1.5.1</spark.version>
 		<spark-scala>2.10</spark-scala>
-		<hbase.version>0.98.13-hadoop2</hbase.version>
+		<hbase.version>1.3.1</hbase.version>
 		<apache.commons.lang>3.4</apache.commons.lang>
 		<springframework.version>4.1.0.RELEASE</springframework.version>
 		<restlet.version>2.3.7</restlet.version>
@@ -103,7 +103,7 @@
 		<dependency>
 			<groupId>org.apache.hbase</groupId>
 			<artifactId>hbase-client</artifactId>
-			<version>0.98.13-hadoop2</version>
+			<version>${hbase.version}</version>
 		</dependency>
 		<!-- <dependency> <groupId>org.apache.hbase</groupId> <artifactId>hbase-server</artifactId> 
 			<version>0.98.13-hadoop2</version> <exclusions> <exclusion> <artifactId>jsp-api</artifactId> 
@@ -111,7 +111,7 @@
 		<dependency>
 			<groupId>org.apache.hbase</groupId>
 			<artifactId>hbase-common</artifactId>
-			<version>0.98.13-hadoop2</version>
+			<version>${hbase.version}</version>
 		</dependency>
 
 		<dependency>
@@ -159,13 +159,15 @@
 		</dependency>
 
 		<dependency>
-
 			<groupId>com.rongji.dfish</groupId>
-
 			<artifactId>dfish-cache</artifactId>
-
 			<version>${com.rongji.dfish.cache}</version>
-
+		</dependency>
+		
+		<dependency>
+			<groupId>org.lionsoul</groupId>
+			<artifactId>jcseg-core</artifactId>
+			<version>2.1.1</version>
 		</dependency>
 	</dependencies>
 
