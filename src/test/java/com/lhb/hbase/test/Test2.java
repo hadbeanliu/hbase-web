@@ -25,7 +25,6 @@ public class Test2 {
 
 	public static List<String> get() throws Exception {
 		
-	
 
 		Gson gson=new Gson();
 		CmsClientFactory fac = new CmsClientFactory("http://cms.work.net", "00000002", "A7dCV37Ip96%86");
@@ -38,15 +37,17 @@ public class Test2 {
 		WsPage page = new WsPage();
 
 		ArticleVo article= client.findArticleVos(filter, page).getList().get(0);
-		
+//		article.forEach(action);
+		System.out.println(article.get("createTime"));
+		System.out.println(article.get("pubDate"));
 		System.out.println("isVote:"+article.get("isVote")+":"+article.get("caName"));
 		String content = article.get("content").toLowerCase();
 		String text = HtmlParser.delHTMLTag(content);
 		String model = "NaiveBayes";
 		System.out.println(text);
-		MainWordExtractor mainWordExtor=new MainWordExtractor();
+		MainWordExtractor mainWordExtor=MainWordExtractor.getInstance();
 		List<String> words=mainWordExtor.tokenizeWithoutPart(text);
-		String uri = "http://master:9999/mining/extractkw?biz_code=headlines" + "&ss_code=user-analys";
+		String uri = "http://slave2:9999/mining/extractkw?biz_code=headlines" + "&ss_code=user-analys";
 		// String text = "[图]杭州上万辆共享单车被弃荒野 场面蔚为壮观";
 		String result = HttpClientResource.post(gson.toJson(words), uri);
 //		TextRankKeyWordExtor textRank=new TextRankKeyWordExtor();

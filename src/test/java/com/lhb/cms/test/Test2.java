@@ -2,6 +2,7 @@ package com.lhb.cms.test;
 
 import java.util.List;
 
+import com.google.gson.Gson;
 import com.lhb.data.common.HtmlParser;
 import com.lhb.data.common.MainWordExtractor;
 import com.rongji.cms.webservice.client.json.ArticleClient;
@@ -13,30 +14,30 @@ import com.rongji.cms.webservice.domain.WsPage;
 public class Test2 {
 
 	public static void main(String[] args) throws Exception {
-		MainWordExtractor extor = new MainWordExtractor();
+		MainWordExtractor mainWordExtor=MainWordExtractor.getInstance();
 		CmsClientFactory fac = new CmsClientFactory("http://cms.work.net", "00000002", "A7dCV37Ip96%86");
 		ArticleClient client = fac.getArticleClient();
 		WsArticleFilter filter = new WsArticleFilter();
 
-		filter.setArIds("2017071219001454");
+		filter.setArIds("2017071919001664");
 
 		WsPage page = new WsPage();
 	
 		ArticleVo article = client.findArticleVos(filter, page).getList().get(0);
+//		System.out.println(article.get("createTime"));
+		article.keySet().forEach(x->System.out.println(x));
+//		System.out.println(new Gson().toJson(article));
 		String str = article.get("content");
 		System.out.println(str);
 //		String str="而是将所有零件移位到";
 //		String str="旧的零售的关注点不在于“人”，但是如今第五轮零售的变化恰恰就是由“人”所引发的变化";
-		System.out.println("del tag:>>>>>>>>>>>"+HtmlParser.delHTMLTag(str));
-		List<String> words = extor.simpleTokenize(HtmlParser.delHTMLTag(str));
-		System.out.println(words);
+		List<String> words = mainWordExtor.simpleTokenize(HtmlParser.delHTMLTag(str));
 		int index = 0;
 		StringBuffer sb = new StringBuffer();
 		char[] originChars = str.toCharArray();
 		String lowCaseContent = str.toLowerCase();
 		char[] chars = lowCaseContent.toCharArray();
 
-		System.out.println(lowCaseContent);
 
 		for (String w : words) {
 			String tmp=lowCaseContent.substring(index);

@@ -1,19 +1,38 @@
 package com.lhb.hbase.test;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.HColumnDescriptor;
 import org.apache.hadoop.hbase.HTableDescriptor;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.Connection;
+import org.apache.hadoop.hbase.client.ConnectionFactory;
+import org.apache.hadoop.hbase.client.Delete;
 import org.apache.hadoop.hbase.client.HBaseAdmin;
 import org.apache.hadoop.hbase.client.HConnectionManager;
 import org.apache.hadoop.hbase.client.HTableInterface;
 import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.client.ResultScanner;
+import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.client.Table;
+import org.apache.hadoop.hbase.filter.CompareFilter.CompareOp;
+import org.apache.hadoop.hbase.filter.Filter;
+import org.apache.hadoop.hbase.filter.SingleColumnValueFilter;
 import org.apache.hadoop.hbase.util.Bytes;
 
+import com.google.gson.Gson;
 import com.lhb.data.common.HtmlParser;
 import com.lhb.data.common.MainWordExtractor;
 import com.lhb.data.common.TableUtil;
@@ -21,86 +40,68 @@ import com.rongji.cms.webservice.client.json.ArticleClient;
 import com.rongji.cms.webservice.client.json.CmsClientFactory;
 import com.rongji.cms.webservice.domain.WsArticleFilter;
 import com.rongji.cms.webservice.domain.WsArticleSynData.ArticleVo;
+import com.rongji.cms.webservice.domain.WsCallResult;
 import com.rongji.cms.webservice.domain.WsPage;
+import com.rongji.cms.webservice.domain.WsResource;
 
 public class Test {
 	public static void main(String[] args) {
 		
-		double a=323.121321;
-		System.out.println(10*a);
-		System.out.println(Integer.toBinaryString(1000));
 		
-		String tmp="";
+		Connection conn;
 		try {
+			conn = ConnectionFactory.createConnection();
+			Table table=conn.getTable(TableName.valueOf("headlines:item_meta_table"));
+			CmsClientFactory fac = new CmsClientFactory("http://cms.work.net", "00000002", "A7dCV37Ip96%86");
+			ArticleClient ac=fac.getArticleClient();
+			Scan scan=new Scan();
+			scan.addColumn("meta".getBytes(), "ogSite".getBytes());
+			scan.addColumn("f".getBytes(), "lb".getBytes());
+			scan.addColumn("p".getBytes(), "t".getBytes());
+			scan.setStopRow(TableUtil.getEndKey(1, Calendar.DAY_OF_YEAR).getBytes());
+			Filter filter=new SingleColumnValueFilter("meta".getBytes(), "ogSite".getBytes(), CompareOp.EQUAL, "东南网".getBytes());
+			scan.setFilter(filter);
+			ResultScanner rs=table.getScanner(scan);
+			int cnt=0;
+			Iterator<Result> it=rs.iterator();
+			Map<String, Integer> count=new HashMap<>();
+//			String[] ids=new String[500];
+			List<Delete> delete=new ArrayList<Delete>();
 			
-//			String content=getAr("2017062819002140");
-//			System.out.println(content);
-			String content="率先拿下房屋拆迁安置协议签约率<strong>100％</strong></p><p>完成房屋拆迁率<strong>100％</strong>咬紧牙关，鼓足干劲，克难攻坚，用智慧和勇气攻破最后的堡垒，确保在六月底前签约率达到 100%。";
-			MainWordExtractor extractor = new MainWordExtractor();
-//			String content=""
-			String newContent=HtmlParser.delHTMLTag(content);
-			List<String> words = extractor.simpleTokenize(newContent);
-			System.out.println(words);
-			char[] chars = content.toCharArray();
-//			char[] chars = newContent.toCharArray();
-			System.out.println("char length?" + chars.length+":: content length:"+newContent.length());
-			int index = 0;
-			StringBuffer sb = new StringBuffer();
-			System.out.println(newContent);
-			System.out.println(content);
-			for(String w:words){
-				if(content.indexOf(w)==-1)
-				System.out.println(w+"::"+content.indexOf(w));
-			}
-			
-			for(String w:words){
-				if(content.indexOf(w)==-1)
-					continue;
-				char[] ch=w.toCharArray();
-				boolean flag=true;
-				if(index>=chars.length){
-					flag=false;
-					}
-				while(flag){
-					
-					if(ch[0] == chars[index]){
-						flag=false;
-						for(int j=0;j<ch.length;j++){
-							if(ch[j]!=chars[index+j]){
-								flag=true;
-								break;
-							}
-						}
-						if(flag){
-							sb.append(chars[index]);
+			List<String> ids=new ArrayList<>();
+			while(it.hasNext()){
+				
+				Result r=it.next();
+				String v=Bytes.toString(r.getValue("meta".getBytes(), "ogSite".getBytes()));
+				String l=Bytes.toString(r.getValue("f".getBytes(), "lb".getBytes()));
+				String t=Bytes.toString(r.getValue("p".getBytes(), "t".getBytes()));
 
-						   index++;	
-						}else {
-							sb.append("<em class=\"margin-l\">").append(w).append("</em>");
-							index+=ch.length;
-							}
-					}else{
-						sb.append(chars[index]);
-						index++;
-					}
-					if(index>=chars.length){
-						flag=false;
-						}
-				}
-				
-				
+//				ids.add(TableUtil.IdReverse(Bytes.toString(r.getRow())));
+//				delete.add(new Delete(r.getRow()));
+				System.out.println(v+"................"+l+"...."+t);
+//				if(ids.size()==50){
+//					String[] deletes=new String[500]; 
+//					ac.deleteArticles(ids.toArray(deletes));
+//					ids.clear();
+//					cnt+=50;
+//					table.delete(new Delete(r.getRow()));
+//					System.out.println("delete nums=="+cnt);
+//
+//				}
+				cnt++;
 			}
-		if(index<chars.length)
-			sb.append(content.substring(index));
-			System.out.println(sb.toString());
-		} catch (Exception e) {
+			
+			for(String key:count.keySet())
+				System.out.println(key+"..."+count.get(key));
+			
+			System.out.println("cnt=="+cnt);
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			System.out.println("---------"+tmp+"---------");
-			
 		}
-
-        
+		
+		
+		
 	}
 	
 	private static String getAr(String id) throws Exception{

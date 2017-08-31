@@ -36,7 +36,7 @@
 	</pluginRepositories>
 
 	<properties>
-		<java.version>1.7</java.version>
+		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<hadoop.version>2.6.0</hadoop.version>
@@ -88,6 +88,8 @@
 			<version>2.2.1.RELEASE-hadoop26</version>
 		</dependency>
 
+	
+
 		<dependency>
 			<groupId>org.apache.hadoop</groupId>
 			<artifactId>hadoop-client</artifactId>
@@ -130,27 +132,7 @@
 			<version>${restlet.version}</version>
 		</dependency>
 
-		<!-- <dependency> <groupId>org.apache.hbase</groupId> <artifactId>hbase-server</artifactId> 
-			<version>0.98.13-hadoop2</version> </dependency> -->
 
-		<!-- <dependency> <groupId>com.rongji.dfish</groupId> <artifactId>dfish-base</artifactId> 
-			<version>${dfish.base.version}</version> </dependency> <dependency> <groupId>com.rongji.dfish</groupId> 
-			<artifactId>dfish-json-base</artifactId> <version>${dfish.json.base.version}</version> 
-			</dependency> <dependency> <groupId>com.rongji.dfish</groupId> <artifactId>dfish-permission-public</artifactId> 
-			<version>${dfish.permission.public.version}</version> </dependency> <dependency> 
-			<groupId>com.rongji.dfish</groupId> <artifactId>dfish-permission-remote</artifactId> 
-			<version>${dfish.permission.remote.version}</version> </dependency> <dependency> 
-			<groupId>com.rongji.dfish</groupId> <artifactId>dfish-sso-public</artifactId> 
-			<version>${dfish.sso.public.version}</version> </dependency> <dependency> 
-			<groupId>com.rongji.dfish</groupId> <artifactId>dfish-sso-remote</artifactId> 
-			<version>${dfish.sso.remote.version}</version> </dependency> <dependency> 
-			<groupId>com.rongji.dfish</groupId> <artifactId>dfish-ums-public</artifactId> 
-			<version>${dfish.ums.public.version}</version> </dependency> <dependency> 
-			<groupId>com.rongji.dfish</groupId> <artifactId>dfish-ums-remote</artifactId> 
-			<version>${dfish.ums.remote.version}</version> </dependency> <dependency> 
-			<groupId>jdk.tools</groupId> <artifactId>jdk.tools</artifactId> <version>1.7</version> 
-			<scope>system</scope> <systemPath>${JAVA_HOME}/lib/tools.jar</systemPath> 
-			</dependency> -->
 
 		<dependency>
 			<groupId>com.rongji.auth</groupId>
@@ -163,7 +145,7 @@
 			<artifactId>dfish-cache</artifactId>
 			<version>${com.rongji.dfish.cache}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.lionsoul</groupId>
 			<artifactId>jcseg-core</artifactId>
@@ -181,8 +163,8 @@
 
 				<configuration>
 					<version>3.0</version>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>1.8</source>
+					<target>1.8</target>
 				</configuration>
 			</plugin>
 
